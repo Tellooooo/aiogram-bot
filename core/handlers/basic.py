@@ -1,12 +1,19 @@
 from aiogram import Bot
 from aiogram.types import Message
 import json
+from core.keyboards.reply import reply_keyboard, loc_tel_poll_keyboard
+
+
+
 
 async def get_start(message: Message, bot: Bot):
-    # print('salom')
-    await bot.send_message(message.from_user.id, f'<b> {message.from_user.first_name} Nma gaaaaaaaaap </b>')
-    await message.answer(f'<s>salom {message.from_user.first_name}. </s>')
-    await message.reply(f'<tg-spoiler>salom {message.from_user.first_name}. </tg-spoiler>')
+    await message.answer(f'<s>salom {message.from_user.first_name}. </s>',
+                        reply_markup=loc_tel_poll_keyboard)
+
+
+async def get_location(message: Message, bot: Bot):
+    await message.answer(f"San manzilingni yubording!\r\a"
+                         f"{message.location.latitude}\r\n{message.location.longitude}")
 
 
 async def get_photo(message: Message, bot: Bot):
