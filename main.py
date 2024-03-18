@@ -13,7 +13,7 @@ from core.utils.commands import set_commands
 
 
 async def start_bot(bot: Bot):
-    await set_commands(bot) #wewe
+    await set_commands(bot) #wewe dvfs
     await bot.send_message(settings.bots.admin_id, text='Bot ishga tushdi')
 
 
